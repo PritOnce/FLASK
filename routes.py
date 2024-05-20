@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from models import Albarans
+from models import Productos
 
 main = Blueprint('main', __name__)
 
@@ -13,10 +13,10 @@ def adios():
 
 @main.route('/posts')
 def posts():
-    posts = Albarans.query.all()
+    posts = Productos.query.all()
     return render_template('posts.html', posts=posts)
 
 @main.route('/post/<int:post_id>', methods=['GET'])
 def post(post_id):
-    post = Albarans.query.get or 404(post_id)
+    post = Productos.query.get or 404(post_id)
     return render_template('post.html', post=post)
