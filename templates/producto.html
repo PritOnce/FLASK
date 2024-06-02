@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ producto.nameProduct }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <ul class="list-group text-center">
+        <li class="list-group-item">{{ producto.nameProduct }}</li>
+        {% if producto.price is none %}
+        <li class="list-group-item">
+          <form method="POST" action="{{ url_for('main.update_price', idProducto=producto.idProducto) }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+              <label for="price">Añadir Precio:</label>
+              <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+          </form>
+        </li>
+        {% else %}
+        <li class="list-group-item">{{ producto.price }}$</li>
+        {% endif %}
+        <li class="list-group-item">Stock: {{ producto.stock }}</li>
+        <li class="list-group-item">Estado: {{ "Activo" if producto.state else "Inactivo" }}</li>
+        <li class="list-group-item">
+          <form method="POST" action="{{ url_for('main.toggle_state', idProducto=producto.idProducto) }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn btn-warning mt-2">{{ "Desactivar" if producto.state else "Activar" }}</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

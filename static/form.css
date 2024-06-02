@@ -1,0 +1,57 @@
+/* Estilos específicos para el formulario de albaranes y facturas */
+.title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.albaran-form {
+    margin-top: 40px;
+    background-color: #f8f9fa; /* Color de fondo del formulario */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar el formulario horizontalmente */
+}
+
+.albaran-form h1 {
+    margin-bottom: 20px;
+}
+
+.albaran-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.albaran-form input[type="text"],
+.albaran-form input[type="number"] {
+    width: calc(50% - 5px); /* Ancho del 50% para cada input */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block; /* Mostrar los inputs en línea */
+}
+
+.albaran-form input[type="number"] {
+    margin-left: 10px; /* Espacio entre los inputs de producto y cantidad */
+}
+
+.albaran-form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.albaran-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.albaran-form .error {
+    color: red;
+    font-size: 0.8em;
+}

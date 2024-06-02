@@ -1,9 +1,13 @@
 from flask import Flask
 from routes import main
 from models import db
+from flask_wtf.csrf import CSRFProtect
 
 #Creamos la app
 app = Flask(__name__)
+csrf = CSRFProtect(app)
+
+app.config['SECRET_KEY'] = 'una-clave-secreta-muy-segura'
 
 #Configuramos la app
 app.config.from_object('config.DevConfig')

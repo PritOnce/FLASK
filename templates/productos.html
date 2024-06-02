@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Productos
+{% endblock %}
+
+{% block body %}
+<h1 style="text-align: center; margin-top: 40px;">PRODUCTOS</h1>
+<div class="container">
+    <div class="row">
+        {% for producto in productos %}
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card" style="width: 18rem; margin: 0 25px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nameProduct }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ producto.price }}$</h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Stock: {{ producto.stock }}</h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Estado: {{ "Activo" if producto.state else "Inactivo" }}</h6>
+                    <a href="{{ url_for('main.ver_mas', idProducto=producto.idProducto) }}" class="card-link">Ver más</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <p>No hay productos</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

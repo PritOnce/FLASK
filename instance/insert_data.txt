@@ -1,0 +1,45 @@
+-- database: c:\Users\prito\Desktop\FLASK\instance\db.sqlite
+
+-- Presione el botón ▷ en la esquina superior derecha de la ventana para ejecutar todo el archivo.
+
+INSERT INTO albaran (fechaRecepcion, proveedor, state) VALUES
+('2023-06-02', 'Proveedor 1', TRUE),
+('2024-06-01', 'Proveedor 2', TRUE),
+('2024-05-14', 'Proveedor 3', TRUE),
+('2025-02-18', 'Proveedor 4', TRUE);
+
+INSERT INTO albaran_productos (albaran_id, producto_id, cantidad, preu) VALUES
+(1,2,10,2.0),
+(1,3,20,4.5),
+(2,4,30,2.7),
+(2,5,40,1.2),
+(3,6,50,0.75),
+(3,7,60,1.80),
+(4,8,70,4.65);
+
+INSERT INTO productos (nameProduct, price, stock, state) VALUES
+('Manzana', 2.1, 100, TRUE),
+('Peras', 2.0, 200, TRUE),
+('Aguacates', 4.5, 300, TRUE),
+('Sandias', 2.7, 400, TRUE),
+('Galletas', 1.2, 500, TRUE),
+('Pan', 0.75, 600, TRUE),
+('Jamon', 1.80, 700, TRUE),
+('Queso', 4.65, 800, TRUE),
+('Cafe', 3.5, 40, TRUE);
+
+
+INSERT INTO facturas_productos (idFactura, idProducto, cantidad, preu) VALUES
+(1,2,10,2.0),
+(1,3,20,4.5),
+(2,4,30,2.7),
+(2,5,40,1.2),
+(3,6,50,0.75),
+(3,7,60,1.80),
+(4,8,70,4.65);
+
+INSERT INTO facturas (fecha, state) VALUES
+('2023-06-02', TRUE),
+('2024-06-01', TRUE),
+('2024-05-14', TRUE),
+('2025-02-18', TRUE);

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+FACTURAS
+{% endblock %}
+
+{% block body %}
+<h1 class="title">FACTURAS</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+<div class="container">
+  <form class="albaran-form" method="POST">
+    {{ form.hidden_tag() }}
+    {% for i in range(5) %}
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="producto{{ i }}">Producto:</label>
+        {{ form['producto' + i|string]() }}
+        {% for error in form['producto' + i|string].errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+      </div>
+      <div class="col-md-6">
+        <label for="cantidad{{ i }}">Cantidad:</label>
+        {{ form['cantidad' + i|string]() }}
+        {% for error in form['cantidad' + i|string].errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+    <input type="submit" value="Enviar Productos" />
+  </form>
+</div>
+{% endblock %}
