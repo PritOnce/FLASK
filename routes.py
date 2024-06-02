@@ -80,6 +80,7 @@ def facturas():
                     db.session.add(factura_producto)
                 else:
                     print('No hay suficiente stock de', productoInput)
+                    flash(f'El producto {productoInput} no existe', 'error')
             else:
                 print('El producto', productoInput, 'no existe')
                 # Aquí lanzamos el mensaje de error
